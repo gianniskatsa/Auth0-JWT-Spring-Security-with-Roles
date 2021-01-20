@@ -14,7 +14,7 @@ In a real world project we would need to implement a role entity and join the ta
  For the sake of this example we will manually pass it.
  Also we have some commented lines to guide you in a real life situation.
  
- In our case we use the List<SimpleGrantedAuthority> authorities = new ArrayList<>() in UserDetailsServiceImpl.
+ In our case we use the ```List<SimpleGrantedAuthority> authorities = new ArrayList<>() in UserDetailsServiceImpl.```
  
  Then we manually apply to the method loadUserByUserName the following line
  ```
