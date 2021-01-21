@@ -1,4 +1,4 @@
-package com.implementingRolesWithAuth0JWT.task;
+package com.implementingRolesWithAuth0JWT.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

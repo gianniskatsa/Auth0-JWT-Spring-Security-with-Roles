@@ -1,5 +1,7 @@
-package com.implementingRolesWithAuth0JWT.task;
+package com.implementingRolesWithAuth0JWT.controllers;
 
+import com.implementingRolesWithAuth0JWT.models.Task;
+import com.implementingRolesWithAuth0JWT.repository.TaskRepository;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

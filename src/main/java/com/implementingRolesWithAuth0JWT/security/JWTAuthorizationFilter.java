@@ -22,7 +22,6 @@ import static com.implementingRolesWithAuth0JWT.security.SecurityConstants.TOKEN
 
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
-    List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
     public JWTAuthorizationFilter(AuthenticationManager authManager) {
         super(authManager);
@@ -54,10 +53,12 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
                     .verify(token.replace(TOKEN_PREFIX, ""))
                     .getSubject();
             if (user != null) {
-                if (user.contains("ROLE_USER")) {
+                if (user.contains("ROLE_USER")) { // Here we check the Token for the Role
+                    List<SimpleGrantedAuthority> authorities = new ArrayList<>();
                     authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
                     return new UsernamePasswordAuthenticationToken(user, null, authorities);
                 } else if ((user.contains("ROLE_ADMIN"))) {
+                    List<SimpleGrantedAuthority> authorities = new ArrayList<>();
                     authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
                     return new UsernamePasswordAuthenticationToken(user, null, authorities);
                 }

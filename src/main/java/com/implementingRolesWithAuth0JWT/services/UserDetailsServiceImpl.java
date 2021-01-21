@@ -15,7 +15,6 @@ import java.util.List;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     private ApplicationUserRepository applicationUserRepository;
-    List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
     public UserDetailsServiceImpl(ApplicationUserRepository applicationUserRepository) {
         this.applicationUserRepository = applicationUserRepository;
@@ -27,6 +26,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (applicationUser == null) {
             throw new UsernameNotFoundException(username);
         }
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 //        Role role = applicationUser.getRole(); Here You can call your role model
         authorities.add(new SimpleGrantedAuthority("ROLE_USER")); //here you could do something like this
         // authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getType()));

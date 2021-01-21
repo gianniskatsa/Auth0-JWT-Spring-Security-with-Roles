@@ -27,7 +27,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, SecurityConstants.SIGN_UP_URL).permitAll()
-                .antMatchers("/tasks/**").hasRole("ADMIN")
+                .antMatchers("/tasks/**").hasRole("USER")
 //                .antMatchers("/tasks/**").hasRole("USER"); **you can uncomment this line and comment the above to check if the role applies correctly
                 .anyRequest().authenticated()
                 .and()
